@@ -79,6 +79,13 @@ with open (csvpath) as csvfile:
 #Task 5: Output the Winner
 
 	#final_tally = [Khan_votes, Correy_votes, Li_votes, OTooley_votes]
+	#max_votes = max(final_tally)
+	
+	with open(output_file, "w") as datafile:
+	writer = csv.writer(datafile)
+	writer.writerow(["num_votes", "uq_cand", "Khan_votes", "Khan_pct", "Correy_votes", "Correy_pct", "Li_votes", "Li_pct", "OTooley_votes", "OTooley_pct",])
+	writer.writerows(cleaned_csv) 		
+	
 				
 
 	
