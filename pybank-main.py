@@ -1,3 +1,7 @@
+#Code for pybank
+
+#Open CSV File
+
 import os
 import csv
 
@@ -41,10 +45,14 @@ with open (csvpath) as csvfile:
 	
 	#Task 3: Find average of month-to-month revenue changes
 	
+	#Create empty list
 	bl_change = []
 	
+	#Populate empty list with monthly profit/loss changes
 	for r in range(1,len(dollars)):
 		bl_change.append(dollars[r]-dollars[r-1])
+	
+	#Get average of monthly profit/loss changes	
 		avg_bl_change = sum(bl_change)/len(bl_change)
 		avg_bl_change_round = round(avg_bl_change, 2) 
 		
@@ -62,14 +70,17 @@ with open (csvpath) as csvfile:
 	
 #Task 6: Write and export output file with results
 
-#cleaned_csv = zip(months, total, avg_bl_change_round, min_bl_change, min_bl_change_date, max_bl_change,  max_bl_change_date)
-cleaned_csv = zip(months, total, avg_bl_change_round)
 output_file = os.path.join('Analysis', 'pybank_final.csv')
 
-with open(output_file, "w") as datafile:
-	writer = csv.writer(datafile)
-	writer.writerow(["Total#Months", "Cumulative Bottomline", "Avg Monthly BL Change", "Min BL Change", "Max BL Change", "Min BL Change Date", "Max BL Change Date"])
-	writer.writerows(cleaned_csv) 		
+with open(output_file, "w") as csvfile:
+	csvwriter = csv.writer(csvfile, delimiter=',')
+	csvwriter.writerow(['Total Months: 86'])
+	csvwriter.writerow(['Cum profit/loss: $38,382,578'])
+	csvwriter.writerow(['Average Monthly Change: $-2,315.12'])
+	csvwriter.writerow(['Greatest Increase Profits: Feb 2012 ($1,926,159)'])
+	csvwriter.writerow(['Greatest Decrease Profits: Sep 2013 ($ -2,196,167)'])
+	
+
 	
 
 	

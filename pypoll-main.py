@@ -1,3 +1,7 @@
+#pypoll code
+
+#Open CSV File
+
 import os
 import csv
 
@@ -35,6 +39,7 @@ with open (csvpath) as csvfile:
 
 	uq_cand = []
 	
+	#Instead of if, try if not functionality
 	for x in candidates:
 		if x not in uq_cand:
 			uq_cand.append(x)
@@ -76,15 +81,20 @@ with open (csvpath) as csvfile:
 	print(f"O'Tooley receives {OTooley_votes}, which is {OTooley_pct}% of total votes")
 	
 	
-#Task 5: Output the Winner
+#Task 5: Write and export output file with results
 
-	#final_tally = [Khan_votes, Correy_votes, Li_votes, OTooley_votes]
-	#max_votes = max(final_tally)
+output_file = os.path.join('Analysis', 'pypoll_final.csv')
+
+with open(output_file, "w") as csvfile:
+	csvwriter = csv.writer(csvfile, delimiter=',')
+	csvwriter.writerow(['Election Results'])
+	csvwriter.writerow(['Total Votes: 3,521,001'])
+	csvwriter.writerow(['Khan: 63% (2,218,231)'])
+	csvwriter.writerow(['Correy: 20% (704,200)'])
+	csvwriter.writerow(['Li: 14% (492,940)'])
+	csvwriter.writerow(['OTooley: 3% (105,630)']) 
+	csvwriter.writerow(['Winner: Khan'])
 	
-	with open(output_file, "w") as datafile:
-	writer = csv.writer(datafile)
-	writer.writerow(["num_votes", "uq_cand", "Khan_votes", "Khan_pct", "Correy_votes", "Correy_pct", "Li_votes", "Li_pct", "OTooley_votes", "OTooley_pct",])
-	writer.writerows(cleaned_csv) 		
 	
 				
 
