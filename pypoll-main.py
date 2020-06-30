@@ -54,11 +54,11 @@ with open (csvpath) as csvfile:
 	OTooley = []
 	
 	for x in candidates:
-		if x=='Khan':
+		if x==uq_cand[0]:
 			Khan.append(x)
-		elif x=='Correy':
+		elif x==uq_cand[1]:
 			Correy.append(x)
-		elif x=='Li':
+		elif x==uq_cand[2]:
 			Li.append(x)
 		else:
 			OTooley.append(x)
@@ -95,7 +95,12 @@ with open(output_file, "w") as csvfile:
 	csvwriter.writerow(['OTooley: 3% (105,630)']) 
 	csvwriter.writerow(['Winner: Khan'])
 	
-	
+#Attempted to use a list reference for Tasks 3-5 so I wouldn't have to hard code calcs for candidates.
+#But ran out of time to code/search/debug/trouble-shoot. 
+#Emergencies on my day-job resulted in time spent away from the hw, so couldn't hone in on completing the code.
+#So turning in what I could reasonably do within my time budget this week.
+#If I had the time, I would create lists for unique-candidate-votes, unique-candidates-pct, and match the lists by index#,
+#and output a dictionary in the output file. 
 				
 
 	
